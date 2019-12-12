@@ -6,8 +6,6 @@ import sys
 
 def get_file_audio(in_path, out_path):
     data, sr = librosa.load(in_path, sr=44100)
-    plt.figure(figsize=(14, 5))
-    librosa.display.waveplot(data, sr=sr)
     _noise = np.array([])
     _data = np.array([])
     _flag_start = False
