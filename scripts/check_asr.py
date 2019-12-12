@@ -1,9 +1,7 @@
 import sys
 import librosa
 import numpy as np
-
 from sklearn.externals import joblib
-from sklearn.preprocessing import StandardScaler
 
 model_load = joblib.load('../models/my_model_2.pkl')
 
@@ -22,11 +20,11 @@ def get_command(path):
         for e in mfcc:
             _X=np.append(_X,[np.mean(e)])
         _Y = model_load.predict([_X])
-        print(_Y)
+        return _Y[0]
 
 
 def main():
-    get_command(sys.argv[1])
+    print(get_command(sys.argv[1]))
 
 if __name__ == "__main__":
     main()
